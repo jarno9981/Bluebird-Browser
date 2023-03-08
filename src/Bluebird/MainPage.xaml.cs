@@ -12,6 +12,7 @@ using Bluebird.Pages;
 using Bluebird.Core;
 using System.Linq;
 using Bluebird.Modules.Readability;
+using BluebirdUrlHelper;
 
 namespace Bluebird;
 

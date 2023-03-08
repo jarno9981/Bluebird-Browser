@@ -6,6 +6,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 using Bluebird.Core;
+using BluebirdUrlHelper;
 
 namespace Bluebird;
 
@@ -28,7 +29,7 @@ sealed partial class App : Application
     private void LoadSettings()
     {
         SearchUrl = SettingsHelper.GetSetting("SearchUrl");
-        TLD.LoadKnownDomains();
+        BluebirdUrlHelper.TLD.LoadKnownDomains();
     }
 
     protected override void OnActivated(IActivatedEventArgs args)

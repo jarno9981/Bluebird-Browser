@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace Bluebird.Core;
+namespace BluebirdUrlHelper;
 
 public class UrlHelper
 {

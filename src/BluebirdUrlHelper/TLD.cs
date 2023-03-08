@@ -2,19 +2,18 @@
 using Windows.ApplicationModel;
 using Windows.Storage;
 
-namespace Bluebird.Core
+namespace BluebirdUrlHelper
 {
-    internal class TLD
+    public class TLD
     {
         public static string KnownDomains { get; set; }
 
         public static async void LoadKnownDomains()
         {
             // Top level domain list
-            StorageFolder appInstalledFolder = Package.Current.InstalledLocation;
-            StorageFolder assets = await appInstalledFolder.GetFolderAsync("Assets");
-            var file = await assets.GetFileAsync("public_domains.txt");
-            KnownDomains = await FileIO.ReadTextAsync(file);
+            StorageFile assets = await StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///BluebirdUrlHelper/List/public_domains.txt"));
+
+            KnownDomains = await FileIO.ReadTextAsync(assets);
         }
 
         public static string GetTLDfromURL(string url)
